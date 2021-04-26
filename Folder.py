@@ -18,6 +18,6 @@ class Folder(SystemElement):
     
     def show_content(self):
         print(f"Folder..{self.name}")
-        print("\t")
         for filenfolder in self.content:
             filenfolder.show_content()
+    

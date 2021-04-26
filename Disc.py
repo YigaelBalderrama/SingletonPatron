@@ -6,7 +6,7 @@ class Disc(metaclass=SingletonMeta):
 
     def __init__(self, name_d):
         self.name = name_d
-        self.capacity = 0
+        self.capacity = 256
         self.max_capacity = 256
 
     def show_content(self):
@@ -15,13 +15,14 @@ class Disc(metaclass=SingletonMeta):
 
     def __actu_weight(self):
         for file in self.content:
-            self.capacity+=file.weight
+            self.capacity-=file.weight
     
     def show_actual_capacity(self):
+        self.__actu_weight()
         print(f"The actual space in disc it's {self.capacity}")
 
     def __verify_space(self, new_content):
-        if self.capacity+new_content.weight>self.max_capacity:
+        if self.capacity-new_content.weight<0:
             raise Exception(f"Insufficient disc {self.name} space")
     
     def add_content(self,new_content):

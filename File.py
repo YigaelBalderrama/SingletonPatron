@@ -15,6 +15,7 @@ class File(SystemElement):
         self.__actu_weight()
     
     def show_content(self):
-        print(f"File..{self.name}")
+        print(f"\tFile..{self.name}")
+
             
     
